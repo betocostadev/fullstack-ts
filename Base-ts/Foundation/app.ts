@@ -1,21 +1,24 @@
 console.log('TS Foundation')
 
-// Objects and Interfaces
-interface Person {
+// Banking
+
+class Account {
   name: string
-  age: number
-  profession?: string | undefined
+  accountNumber: number
+
+  constructor(name: string, accountNumber: number) {
+    this.name = name
+    this.accountNumber = accountNumber
+  }
+
+  deposit = () => {
+    console.log('You made a deposit')
+  }
+
+  withdraw = () => {
+    console.log('You made a withdraw')
+  }
 }
 
-const personOne: Person = {
-  name: 'Bob',
-  age: 37,
-  profession: 'Software Engineer',
-}
-
-const personTwo: Person = {
-  name: 'Creuba',
-  age: 30,
-}
-
-const persons: Array<Person> = [personOne, personTwo]
+const newAccount: Account = new Account('Beto', 1)
+console.log(newAccount)
