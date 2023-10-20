@@ -2,13 +2,18 @@ console.log('TS Foundation')
 
 // Banking
 
-class Account {
+abstract class Account {
   name: string
   accountNumber: number
+  balance: number = 0
 
   constructor(name: string, accountNumber: number) {
     this.name = name
     this.accountNumber = accountNumber
+  }
+
+  getBalance = () => {
+    return this.balance
   }
 
   deposit = () => {
@@ -20,5 +25,15 @@ class Account {
   }
 }
 
-const newAccount: Account = new Account('Beto', 1)
+class PersonAccount extends Account {
+  doc_id: number
+
+  constructor(doc_id: number, name: string, accountNumber: number) {
+    super(name, accountNumber)
+    this.doc_id = doc_id
+  }
+}
+
+const newAccount: Account = new PersonAccount(44039920, 'Beto', 1)
 console.log(newAccount)
+console.log('balance: ', newAccount.getBalance())
