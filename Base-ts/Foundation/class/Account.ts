@@ -1,6 +1,6 @@
 export abstract class Account {
   private name: string
-  accountNumber: number
+  private readonly accountNumber: number
   balance: number = 0
   accountStatus: boolean = true
 
@@ -9,16 +9,14 @@ export abstract class Account {
     this.accountNumber = accountNumber
   }
 
+  getName = (): string => this.name
+
+  getBalance = (): number => this.balance
+
+  getAccountNumber = (): number => this.accountNumber
+
   setName = (name: string): void => {
     this.name = name
-  }
-
-  getName = (): string => {
-    return this.name
-  }
-
-  getBalance = (): number => {
-    return this.balance
   }
 
   deposit = (value: number): void => {
