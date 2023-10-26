@@ -1,11 +1,20 @@
 export abstract class Account {
-  name: string
+  private name: string
   accountNumber: number
   balance: number = 0
+  accountStatus: boolean = true
 
   constructor(name: string, accountNumber: number) {
     this.name = name
     this.accountNumber = accountNumber
+  }
+
+  setName = (name: string): void => {
+    this.name = name
+  }
+
+  getName = (): string => {
+    return this.name
   }
 
   getBalance = (): number => {
@@ -13,10 +22,18 @@ export abstract class Account {
   }
 
   deposit = (value: number): void => {
-    console.log(`You made a deposit of ${value}`)
+    if (this.validateAccountStatus()) {
+      console.log(`You made a deposit of ${value}`)
+    }
   }
 
   withdraw = (): void => {
     console.log('You made a withdraw')
+  }
+
+  private validateAccountStatus = (): boolean => {
+    if (this.accountStatus) return this.accountStatus
+
+    throw new Error('Account is inactive')
   }
 }
