@@ -22,6 +22,7 @@ export abstract class Account {
   deposit = (value: number): void => {
     if (this.validateAccountStatus()) {
       console.log(`You made a deposit of ${value}`)
+      this.balance += value
     }
   }
 

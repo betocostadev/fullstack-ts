@@ -1,2 +1,7 @@
 # fullstack-ts
-Training TS with React and Node
+
+Full Stack Typescript Training with Node.js.
+
+## About
+
+This repository contains study material and tests related to TypeScript
